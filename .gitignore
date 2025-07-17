@@ -1,0 +1,41 @@
+env/
+.venv/
+.venv
+.vscode/
+__pycache__
+__pycache__/*
+*/__pycache__/*
+# app/static/screenshots/*
+*/screenshots/*
+*.jpg
+*.png
+*.pyc
+/venv
+# ./app/static/screenshots/*
+# IDE
+.vscode/
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+app/static/uploads/*
+!app/static/uploads/.gitkeep
+
+.python-version
+data/rabbitmq_data_dev/*
+data/postgres_data_dev/*
+data/redis-data_dev/*
+data/rabbitmq_log_dev/*
+
+!data/rabbitmq_data_dev/.gitkeep
+!data/postgres_data_dev/.gitkeep
+!data/redis-data_dev/.gitkeep
+!data/rabbitmq_log_dev/.gitkeep
+# .codegpt*.pyc
+*.pyc
+
+# .env.dev
+# alembic.ini
+# app/config.py
