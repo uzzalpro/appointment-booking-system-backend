@@ -159,7 +159,7 @@ def login(user_credentials: UserLoginSchema, db: Session = Depends(get_db)):
     )
 
 
-@user_auth_router.get("/search", response_model=List[DoctorResponse])
+@user_auth_router.get("/doctors/search", response_model=List[DoctorResponse])
 def search_doctors(
     keyword: Optional[str] = Query(None, description="Search by name, email, specialization, division, district, thana or mobile"),
     skip: int = 0,

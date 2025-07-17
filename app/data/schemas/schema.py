@@ -230,6 +230,8 @@ class DoctorResponse(BaseModel):
     experience_years: Optional[int]
     consultation_fee: Optional[int]
     available_timeslots: Optional[str]
+    user_type: Optional[UserType] = None
+    specializations: Optional[List[DoctorSpecializationIn]]
 
     class Config:
         from_attributes = True  # Enables ORM mode (same as orm_mode = True)
