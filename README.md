@@ -69,7 +69,7 @@ docker compose -f docker-compose-dev.yml up -d --build
 
 ```
 
-# SOLID Principles Implementation
+## SOLID Principles Implementation
  - Each service (user, appointment, reporting) has a single responsibility
  - Controllers, services, and repositories are separated
 
@@ -87,7 +87,7 @@ npm start
 
 ## API Documentation
 
-The API documentation is available via Swagger UI at ```http://127.0.0.1:8000/user-auth/api/v1/api-docs``` when the backend is running.
+The API documentation is available via **Swagger UI** at ```http://127.0.0.1:8000/user-auth/api/v1/api-docs``` when the backend is running.
 
 ## Authentication
 All endpoints (except login/register) require JWT authentication. Include the token in the Authorization header:
