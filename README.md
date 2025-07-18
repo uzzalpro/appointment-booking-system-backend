@@ -95,25 +95,25 @@ All endpoints (except login/register) require JWT authentication. Include the to
 
 ## Challenges Faced and Solutions
 - **Complex Validation Requirements:**
-**Challenge**: Multiple validation rules for user registration and appointment booking
-**Solution**: Implemented Pydantic models with custom validators and database-level constraints
+ - **Challenge**: Multiple validation rules for user registration and appointment booking
+ - **Solution**: Implemented Pydantic models with custom validators and database-level constraints
 
 ## Background Tasks:
-**Challenge**: Implementing reliable background tasks for reminders
-**Solution**: Used Celery Scheduler and Redis for result backend
+ - **Challenge**: Implementing reliable background tasks for reminders
+ - **Solution**: Used Celery Scheduler and Redis for result backend
 
 ## Time Slot Management:
-**Challenge**: Ensuring appointment times don't conflict with doctor availability
-**Solution**: Implemented comprehensive validation in both API and database
+ - **Challenge**: Ensuring appointment times don't conflict with doctor availability
+ - **Solution**: Implemented comprehensive validation in both API and database
 
 ## Microservice Communication:
-**Challenge**: Coordinating between user, appointment, and reporting services
-**Solution**: Used shared database for simplicity (could be replaced with API calls in future)
+ - **Challenge**: Coordinating between user, appointment, and reporting services
+ - **Solution**: Used shared database for simplicity (could be replaced with API calls in future)
 
 
 ## Monitoring and Maintenance
-**Logging**: Implemented comprehensive logging for all services
-**Health Checks**: Added health check endpoints for all services
+ - **Logging**: Implemented comprehensive logging for all services
+ - **Health Checks**: Added health check endpoints for all services
 
 ## Future Improvements
 Implement API Gateway for better microservice management
