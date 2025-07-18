@@ -83,7 +83,7 @@ docker compose -f docker-compose-dev.yml up -d --build
 npm install
 npm start
 ```
-- **Backend:** ```http://localhost:3000```
+- **Frontend:** ```http://localhost:3000```
 
 ## API Documentation
 
