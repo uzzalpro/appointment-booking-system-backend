@@ -93,6 +93,27 @@ The API documentation is available via **Swagger UI** at ```http://127.0.0.1:800
 All endpoints (except login/register) require JWT authentication. Include the token in the Authorization header:
 ```Authorization: Bearer <your_token>```
 
+## Database Schema
+```
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    mobile VARCHAR(14) UNIQUE NOT NULL CHECK (mobile LIKE '+88%'),
+    password_hash VARCHAR(255) NOT NULL,
+    user_type VARCHAR(10) NOT NULLCHECK (user_type IN ('patient', 'doctor', 'admin')),
+    division VARCHAR(50),
+    district VARCHAR(50),
+    thana VARCHAR(50),
+    profile_image VARCHAR(255),
+    license_number VARCHAR(50),
+    experience_years INTEGER,
+    consultation_fee DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    specializations INTEGER REFERENCES doctor_specializations(id)
+    status VARCHAR(10) NOT CHECK (user_type IN ('patient', 'doctor', 'admin'))
+);
+```
 ## Challenges Faced and Solutions
 - **Complex Validation Requirements:**
  - **Challenge**: Multiple validation rules for user registration and appointment booking
