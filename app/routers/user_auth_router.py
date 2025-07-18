@@ -158,18 +158,25 @@ def login(user_credentials: UserLoginSchema, db: Session = Depends(get_db)):
         )
     )
 
-
 @user_auth_router.get("/doctors/search", response_model=List[DoctorResponse])
 def search_doctors(
-    keyword: Optional[str] = Query(None, description="Search by name, email, specialization, division, district, thana or mobile"),
-    skip: int = 0,
-    limit: int = 10,
+    keyword: Optional[str] = Query(None),
+    specialization: Optional[str] = Query(None),
+    division: Optional[str] = Query(None),
+    district: Optional[str] = Query(None),
+    thana: Optional[str] = Query(None),
+    is_available: Optional[bool] = Query(None),
     db: Session = Depends(get_db)
 ):
     query = db.query(UserModel).filter(
     UserModel.user_type.in_([UserType.DOCTOR, UserType.PATIENT])
 )
-
+    
+    if specialization:
+        query = query.join(UserModel.specializations).filter(
+            DoctorSpecialization.specialized.ilike(f"%{specialization}%")
+        )
+    
     if keyword:
         keyword = f"%{keyword.lower()}%"
         query = query.filter(
@@ -177,9 +184,40 @@ def search_doctors(
             (UserModel.email.ilike(keyword)) |
             (UserModel.mobile.ilike(keyword))
         )
+    
+    if division:
+        query = query.filter(UserModel.division.ilike(f"%{division}%"))
+    
+    if district:
+        query = query.filter(UserModel.district.ilike(f"%{district}%"))
+    
+    if thana:
+        query = query.filter(UserModel.thana.ilike(f"%{thana}%"))
+    
+    if is_available is not None:
+        query = query.filter(UserModel.is_available == is_available)
+    
+    return query.all()
+# def search_doctors(
+#     keyword: Optional[str] = Query(None, description="Search by name, email, specialization, division, district, thana or mobile"),
+#     skip: int = 0,
+#     limit: int = 10,
+#     db: Session = Depends(get_db)
+# ):
+#     query = db.query(UserModel).filter(
+#     UserModel.user_type.in_([UserType.DOCTOR, UserType.PATIENT])
+# )
 
-    results = query.offset(skip).limit(limit).all()
-    return results
+#     if keyword:
+#         keyword = f"%{keyword.lower()}%"
+#         query = query.filter(
+#             (UserModel.full_name.ilike(keyword)) |
+#             (UserModel.email.ilike(keyword)) |
+#             (UserModel.mobile.ilike(keyword))
+#         )
+
+#     results = query.offset(skip).limit(limit).all()
+#     return results
 
 
 """
