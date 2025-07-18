@@ -31,7 +31,7 @@ The system follows a microservice architecture with the following components:
 ```
 docker compose -f docker-compose-dev.yml up -d --build
 ```
-## Access the application:
+**Access the application**:
 - **Backend:** ```http://127.0.0.1:8000```
 
 ## Architecture Diagram
