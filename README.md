@@ -114,6 +114,13 @@ CREATE TABLE users (
     status VARCHAR(10) NOT CHECK (user_type IN ('patient', 'doctor', 'admin'))
 );
 ```
+## Background Task Implementation
+As part of the assignment requirement to implement background tasks, I have successfully configured a daily task using Celery that sends appointment reminders 24 hours before the scheduled time.
+
+Since real-time notifications were not integrated in this version, I implemented the reminder functionality via email notifications instead. This approach ensures users still receive reminders without relying on a notification system.
+
+***The task was tested using Celery with a terminal worker, and the reminder emails were successfully triggered and logged in the terminal output.***
+
 ## Challenges Faced and Solutions
 - **Complex Validation Requirements:**
  - **Challenge**: Multiple validation rules for user registration and appointment booking
