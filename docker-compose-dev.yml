@@ -1,10 +1,10 @@
 version: "3.8"
 
 services:
-  frontend:
-    ports:
-      - 3173:4173
-    image: frontend-dev
+  # frontend:
+  #   ports:
+  #     - 3173:4173
+  #   image: frontend-dev
     # volumes:
     #   - /home/syed/chrome-extension-qaclan.zip:/app/public/chrome-extension-qaclan.zip
   common: &default_image
@@ -36,7 +36,7 @@ services:
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "3432:5432"
   rabbitmq:
     image: rabbitmq:3-management
     ports:

@@ -2,23 +2,17 @@ env/
 .venv/
 .venv
 .vscode/
+/venv-py311
 __pycache__
 __pycache__/*
 */__pycache__/*
-# app/static/screenshots/*
-*/screenshots/*
+app/static/uploads/*
+*/uploads/*
 *.jpg
 *.png
 *.pyc
 /venv
-# ./app/static/screenshots/*
-# IDE
-.vscode/
-
-# Python compiled files
-__pycache__/
-*.py[cod]
-*$py.class
+./app/static/uploads/*
 
 app/static/uploads/*
 !app/static/uploads/.gitkeep
@@ -29,13 +23,11 @@ data/postgres_data_dev/*
 data/redis-data_dev/*
 data/rabbitmq_log_dev/*
 
-!data/rabbitmq_data_dev/.gitkeep
-!data/postgres_data_dev/.gitkeep
-!data/redis-data_dev/.gitkeep
-!data/rabbitmq_log_dev/.gitkeep
-# .codegpt*.pyc
-*.pyc
-
-# .env.dev
-# alembic.ini
-# app/config.py
+# !data/rabbitmq_data_dev/.gitkeep
+# !data/postgres_data_dev/.gitkeep
+# !data/redis-data_dev/.gitkeep
+# !data/rabbitmq_log_dev/.gitkeep
+venv_py311/*
+*/venv_py311/*
+.codegpt
+files/*

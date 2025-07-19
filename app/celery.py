@@ -16,7 +16,8 @@ def create_celery_app():
     celery_app.conf.beat_schedule = {
         "send-daily-reminders": {
         "task": "app.services.reminder.send_daily_appointment_reminders",
-        "schedule": crontab(hour=8, minute=0),
+        # "schedule": crontab(hour=8, minute=0),
+        'schedule': crontab(minute='*'), 
         },
         "generate-monthly-reports": {
             "task": "app.services.reports.generate_monthly_report",

@@ -36,9 +36,10 @@ def send_daily_appointment_reminders():
                     f"This is a reminder for your appointment with Dr. {doctor.full_name} on {appt.appointment_date.strftime('%Y-%m-%d %H:%M')}.\n"
                     "Please be on time.\n\nThanks!"
                 )
-                print(to=patient.email, subject=subject, body=message)
+                print(f"To: {patient.email}\nSubject: {subject}\nBody:\n{message}\n")
     finally:
         db.close()
+
 
 
 # @celery_app.task
